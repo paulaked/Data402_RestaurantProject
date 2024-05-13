@@ -32,7 +32,7 @@ class Table:
 
     def get_total(self,service_charge: float = 0.10) -> dict:
         total = self.get_subtotal() * (service_charge + 1)
-        return {"Sub Total": self.get_subtotal(), "Service Charge": service_charge, "Total": f"{total:.2f}"}
+        return {"Sub Total": self.get_subtotal(), "Service Charge": self.get_subtotal() * service_charge, "Total": f"{total:.2f}"}
 
     def split_bill(self):
         split_total = self.get_subtotal() / self.people
