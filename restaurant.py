@@ -13,8 +13,17 @@ class Table: # represents each table at restaurant
         else: # if current item is not on bill
             self.bill.append({'item': item, 'price': price, 'quantity': quantity}) # add new dictionary with new items to bill list
 
-    def remove(self):
-        pass
+    def remove(self, item, price, quantity):
+        for i in range(len(self.bill)):
+            if self.bill[i]['item'] == item and self.bill[i]['price'] == price: # if the current item matches another item in bill
+                if self.bill[i]['quantity'] >= quantity: # if quantity to remove greater than actual quantity
+                    self.bill[i]['quantity'] -= quantity # decrease by 1
+                    if self.bill[i]['quantity'] == 0: # if quantity 0
+                        del self.bill[i] # delete item from the bill
+                    return True # if removed return True
+                else:
+                    return False # if item or quantity not in bill
+        return False # if item not in bill
 
     def get_subtotal(self):
         pass
