@@ -40,5 +40,6 @@ class Table: # represents each table at restaurant
         }
 
     def split_bill(self):
-        pass
-
+        subtotal = self.get_subtotal()
+        split_cost = subtotal / self.num_people # divide cost by number of people
+        return round(split_cost, 2) # returns cost to 2 decimal places
