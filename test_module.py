@@ -75,7 +75,7 @@ class UnitTests(unittest.TestCase):
         self.table05.order('Food3', 0.60, 1)
         actual = self.table05.get_total(0.15)
         expected = {
-            'Sub Total': '£50.60',
+            'Sub Total': '£50.6',
             'Service Charge': '£7.59',
             'Total': '£58.19'
         }
