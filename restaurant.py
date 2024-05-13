@@ -33,3 +33,11 @@ class Table:
             else:
                 return False
 
+    def get_subtotal(self):
+        total_cost = 0
+        for menu_item in self.bill:
+            total_cost += menu_item["price"] * menu_item["quantity"]
+
+        return total_cost
+
+
