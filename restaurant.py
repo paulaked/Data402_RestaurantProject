@@ -50,3 +50,9 @@ class Table:
                       "Total": "£{:.2f}".format(total)
                       }
         return total_dict
+
+    def split_bill(self):
+        total = Table.get_subtotal(self)
+        subtotal_cost = round(total / self.number_of_people, 2)
+
+        return subtotal_cost
