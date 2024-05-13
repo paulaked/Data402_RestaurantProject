@@ -40,4 +40,13 @@ class Table:
 
         return total_cost
 
+    def get_total(self, service_charge=0.1):
+        subtotal = Table.get_subtotal(self)
+        service_charge = subtotal * service_charge
+        total = subtotal + service_charge
 
+        total_dict = {"Sub Total": "£{:.2f}".format(subtotal),
+                      "Service Charge": "£{:.2f}".format(service_charge),
+                      "Total": "£{:.2f}".format(total)
+                      }
+        return total_dict
