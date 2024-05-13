@@ -23,4 +23,8 @@ class Table:
                     return False
         return False
 
+    def get_subtotal(self):
+        subtotal = round(sum([item_in_bill['quantity']*item_in_bill['price'] for item_in_bill in self.bill]), 2)
+        return subtotal
+
 
