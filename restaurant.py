@@ -34,4 +34,9 @@ class Table:
         final_bill = {'Sub Total': f'£{subtotal:.2f}', 'Service Charge': f'£{service_charge_amount:.2f}', 'Total': f'£{total:.2f}'}
         return final_bill
 
+    def split_bill(self):
+        subtotal = self.get_subtotal()
+        split_cost = round(subtotal/self.num_eaters, 2)
+        return split_cost
+
 
