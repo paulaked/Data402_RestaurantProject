@@ -1,17 +1,32 @@
 class Table: # represents each table at restaurant
     def __init__(self, num_people): # when a Table object is created
 
-        self.bill = [] # empty list for bill list is created
-        self.num_people = num_people # store number of people at table
-        pass
+        self._bill = [] # empty list for bill list is created
+        self._num_people = num_people # store number of people at table
 
-    def order(self, item, price, quantity=1): #default quantity of 1
-        for i in range(len(self.bill)): #interate through bill
-            if self.bill[i]['item'] == item and self.bill[i]['price'] == price: # check if current item already on bill
-                self.bill[i]['quantity'] += quantity #increment if so
+    @property                   # decorator which defines getter method for accessing bill
+    def bill(self):             # defines getter method for bill attribute
+        return self._bill
+
+    @bill.setter                # decorator which defines setter method for modifying bill attribute
+    def bill(self, new_bill):   # define setter method for bill attribute
+        self._bill = new_bill   # sets bill value to value of new bill
+
+    @property                   # decorator which defines getter method for accessing num_people
+    def num_people(self):
+        return self._num_people
+
+    @num_people.setter                      # decorator defines a setter method for modifying _num_people attribute
+    def num_people(self, new_num_people):
+        self._num_people = new_num_people
+
+    def order(self, item, price, quantity=1):                                    # default quantity of 1
+        for i in range(len(self.bill)):                                          # interate through bill
+            if self.bill[i]['item'] == item and self.bill[i]['price'] == price:  # check if current item already on bill
+                self.bill[i]['quantity'] += quantity                             # increment if so
                 break
         else: # if current item is not on bill
-            self.bill.append({'item': item, 'price': price, 'quantity': quantity}) # add new dictionary with new items to bill list
+            self.bill.append({'item': item, 'price': price, 'quantity': quantity})  # add new dict w/ new items to list
 
     def remove(self, item, price, quantity):
         for i in range(len(self.bill)):
