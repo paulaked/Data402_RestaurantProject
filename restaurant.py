@@ -27,4 +27,11 @@ class Table:
         subtotal = round(sum([item_in_bill['quantity']*item_in_bill['price'] for item_in_bill in self.bill]), 2)
         return subtotal
 
+    def get_total(self, service_charge=0.10):
+        subtotal = self.get_subtotal()
+        service_charge_amount = round(subtotal * service_charge, 2)
+        total = round(subtotal + service_charge_amount, 2)
+        final_bill = {'Sub Total': f'£{subtotal:.2f}', 'Service Charge': f'£{service_charge_amount:.2f}', 'Total': f'£{total:.2f}'}
+        return final_bill
+
 
