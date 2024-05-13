@@ -30,9 +30,15 @@ class Table: # represents each table at restaurant
         return subtotal
 
     def get_total(self, service_charge=0.10):
-        pass
+        subtotal = self.get_subtotal()
+        service_charge_amount = subtotal * service_charge
+        total = subtotal + service_charge_amount
+        return {
+            'Sub Total': '£{:.2f}'.format(subtotal), # format as string with £ prefix, float to two decimal places
+            'Service Charge': '£{:.2f}'.format(service_charge_amount),
+            'Total': '£{:.2f}'.format(total)
+        }
 
     def split_bill(self):
         pass
-
 
