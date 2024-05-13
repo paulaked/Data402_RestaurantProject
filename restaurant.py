@@ -12,7 +12,7 @@ class Table:
         else:
             self.bill.append({'item': item, 'price': price, 'quantity': quantity})
 
-    def remove(self, item: str, price: float, quantity: int = 1) -> bool:
+    def remove(self, item: str, price: float, quantity: int) -> bool:
         for items in self.bill:
             if items["item"] in item:
                 if items["quantity"] - quantity > 0:
