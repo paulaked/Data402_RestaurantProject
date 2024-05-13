@@ -1,2 +1,5 @@
 class Table:
-    pass
+    def __init__(self, num_people):
+        pass
+
+    
