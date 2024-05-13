@@ -26,11 +26,13 @@ class Table: # represents each table at restaurant
         return False # if item not in bill
 
     def get_subtotal(self):
-        pass
+        subtotal = sum(item['price'] * item['quantity'] for item in self.bill)
+        return subtotal
 
-    def get_total(self):
+    def get_total(self, service_charge=0.10):
         pass
 
     def split_bill(self):
         pass
+
 
