@@ -28,3 +28,14 @@ class Table:
         for item_entry in self.bill:
             subtotal += item_entry["price"] * item_entry["quantity"]
         return subtotal
+
+    def get_total(self, service_charge_percentage=0.10):
+        subtotal = self.get_subtotal()
+        service_charge = subtotal * service_charge_percentage
+        total = subtotal + service_charge
+
+        subtotal_str = "£{:.2f}".format(subtotal)
+        service_charge_str = "£{:.2f}".format(service_charge)
+        total_str = "£{:.2f}".format(total)
+
+        return {"Sub Total": subtotal_str, "Service Charge": service_charge_str, "Total": total_str}
