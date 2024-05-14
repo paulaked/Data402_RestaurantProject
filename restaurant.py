@@ -22,3 +22,8 @@ class Table:
                 else:
                         return False
         return False
+
+    def get_subtotal(self):
+        subtotal = 0
+        for item_entry in self.bill:
+            subtotal += item_entry["price"] * item_entry["quantity"]
