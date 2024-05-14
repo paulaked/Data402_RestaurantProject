@@ -36,3 +36,12 @@ class Table:
         for item in self.bill:
             subtotal += item["price"] * item["quantity"]
         return subtotal
+
+    def get_total(self, service_charge=0.10):
+        # Calculate teh total bill, with service charge included
+        subtotal = self.get_subtotal()
+        total = subtotal * service_charge
+        return total
+
+    
+
