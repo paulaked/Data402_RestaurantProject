@@ -1,3 +1,5 @@
+import math
+
 class Table:
     def __init__(self, num_of_people):
         self.num_of_people = num_of_people
@@ -39,3 +41,9 @@ class Table:
         total_str = "£{:.2f}".format(total)
 
         return {"Sub Total": subtotal_str, "Service Charge": service_charge_str, "Total": total_str}
+
+    def split_bill(self):
+        subtotal = self.get_subtotal()
+        split_cost = subtotal / self.num_of_people
+        split_cost = math.ceil(split_cost * 100) / 100
+        return split_cost
